@@ -11,7 +11,7 @@ export async function POST(req: Request) {
   try {
     const body = await req.json();
     console.log(body, "b123");
-    if (!body?.email) return NextResponse.error("provide a valid email");
+    if (!body?.email) return NextResponse.error();
 
     const checkUser = await UserModel.findOne({ email: body.email });
     console.log("🚀 ~ POST ~ checkUser:", checkUser, body);
@@ -23,7 +23,6 @@ export async function POST(req: Request) {
       body.password = hashedPassword;
       const newUser = await UserModel.insertMany([body]);
       return NextResponse.json(newUser);
-
       //     bcrypt.genSalt(saltRounds, function (err, salt) {
       //     bcrypt.hash(body.password, salt, async function (err, hashedPassword) {
       //       body.password = hashedPassword;
@@ -35,7 +34,7 @@ export async function POST(req: Request) {
       throw new Error(`${body.email} already exist. Please Signin`);
     }
   } catch (error) {
-    return NextResponse.error("some");
+    return NextResponse.error();
   }
   // const data = req.body;
   // const id = await createItem(data);

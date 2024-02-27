@@ -2,7 +2,14 @@
  * This is the array of routes which are accessible to public without auth
  * @type {string[]}
  */
-export const publicRoutes: string[] = ["/home", "/"];
+export const publicRoutes: string[] = [
+  "/home",
+  "/",
+  "/contact",
+  "/videos",
+  "/about",
+  "/home/",
+];
 
 /**
  * This is the array of routes which are accessible to private with auth
@@ -20,4 +27,4 @@ export const apiAuthPrefix: string = "/api/auth";
  * The default path if user is authenticated
  * @type {string}
  */
-export const DEFAULT_LOGIN_REDIRECT: string = "/settings";
+export const DEFAULT_LOGIN_REDIRECT: string = "/admin";

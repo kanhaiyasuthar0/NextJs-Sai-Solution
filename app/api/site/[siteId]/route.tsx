@@ -3,7 +3,7 @@ import SiteModel from "@/models/Sites.models"; // Adjust this path to where your
 import { NextApiRequest, NextApiResponse } from "next";
 import { NextResponse } from "next/server";
 // async function handler(req, res) {
-async function handler(req: NextApiRequest, context) {
+async function handler(req: Request, context: any) {
   console.log("🚀 ~ handler ~ req:", context);
   const {
     params: { siteId },
@@ -16,13 +16,13 @@ async function handler(req: NextApiRequest, context) {
 
     return NextResponse.json(sites);
   } catch (error) {
-    return NextResponse.error(error.message);
+    return NextResponse.error();
 
     // res.status(400).json({ error: error.message });
     console.log(error);
   }
 }
-async function DELETE(req: NextApiRequest, context) {
+async function DELETE(req: Request, context: any) {
   console.log("🚀 ~ handler ~ req:", context);
   const {
     params: { siteId },
@@ -35,7 +35,7 @@ async function DELETE(req: NextApiRequest, context) {
 
     return NextResponse.json(sites);
   } catch (error) {
-    return NextResponse.error(error.message);
+    return NextResponse.error();
 
     // res.status(400).json({ error: error.message });
     console.log(error);

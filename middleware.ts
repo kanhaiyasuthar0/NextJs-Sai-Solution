@@ -17,8 +17,12 @@ export default auth((req) => {
   const isApiRoute = nextUrl.pathname.startsWith(apiAuthPrefix);
 
   //checking for public routes
-  const isPublicRoute = publicRoutes.includes(nextUrl.pathname);
+  //   const isPublicRoute = publicRoutes.includes(nextUrl.pathname);
 
+  const isPublicRoute = publicRoutes.some(
+    (route) =>
+      nextUrl.pathname === route || nextUrl.pathname.startsWith(route + "/")
+  );
   //checking for authenticated routes
   const isAuthRoute = authRoutes.includes(nextUrl.pathname);
   console.log(
@@ -34,6 +38,7 @@ export default auth((req) => {
 
   // chekcing if user comes on the login and is logged in or not
   if (isAuthRoute) {
+    console.log("auth123");
     if (isLoggedIn) {
       return Response.redirect(new URL(DEFAULT_LOGIN_REDIRECT, nextUrl));
     }
@@ -44,6 +49,7 @@ export default auth((req) => {
     // not logged in and not on public route
     return Response.redirect(new URL("/auth/login", nextUrl));
   }
+  console.log("reached last");
   return null;
 });
 

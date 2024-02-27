@@ -8,6 +8,9 @@ const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   // const session = await auth();
   const { data: session, status } = useSession();
+  //   if (session) {
+  //     return <></>;
+  //   }
   console.log("🚀 ~ SettingPage ~ session:", session);
   return (
     <nav className="bg-gray-800 text-white">
@@ -29,6 +32,13 @@ const Navbar = () => {
                   </div>
                 </Link>
               )}
+              {session && (
+                <Link href="/admin" passHref>
+                  <div className="py-5 px-3 hover:text-gray-400 cursor-pointer">
+                    Main panel
+                  </div>
+                </Link>
+              )}
               <Link href="/home" passHref>
                 <div className="py-5 px-3 hover:text-gray-400 cursor-pointer">
                   Home
@@ -44,6 +54,7 @@ const Navbar = () => {
                   Login
                 </div>
               </Link>  */}
+
               {!session ? (
                 <Link href={`/auth/${!session ? "login" : "login"}`} passHref>
                   <div className="py-5 px-3 hover:text-gray-400 cursor-pointer">
@@ -61,13 +72,13 @@ const Navbar = () => {
                   </div>
                 </Link>
               )}
-              {session && (
+              {/* {session && (
                 <Link href="/admin/new-site" passHref>
                   <div className="py-5 px-3 hover:text-gray-400 cursor-pointer">
                     Add/remove site
                   </div>
                 </Link>
-              )}
+              )} */}
 
               {!session && (
                 <Link href="/contact" passHref>
@@ -84,21 +95,21 @@ const Navbar = () => {
                 </Link>
               )}
 
-              {session && (
+              {/* {session && (
                 <Link href="/settings" passHref>
                   <div className="py-5 px-3 hover:text-gray-400 cursor-pointer">
                     Settings
                   </div>
                 </Link>
-              )}
-              {session && (
+              )} */}
+              {/* {session && (
                 <button
                   className="bg-gray-800 text-white font-semibold py-2 px-4 rounded-lg hover:bg-gray-700 transition duration-300 ease-in-out"
                   onClick={() => signOut()}
                 >
                   Logout
                 </button>
-              )}
+              )} */}
             </div>
           </div>
           {/* Mobile Menu Button */}

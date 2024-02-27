@@ -43,10 +43,10 @@ export async function POST(req: Request) {
         async function (err, result) {}
       );
     } else {
-      return NextResponse.error({ error: "no user found" }, { status: 600 });
+      return NextResponse.error();
     }
   } catch (error) {
-    return NextResponse.error({ error: "no user found" }, { status: 600 });
+    return NextResponse.error();
   }
   // const data = req.body;
   // const id = await createItem(data);

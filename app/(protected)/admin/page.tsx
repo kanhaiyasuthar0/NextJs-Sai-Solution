@@ -1,6 +1,7 @@
 // "use client";
 // pages/protected.js
 import { auth } from "@/auth";
+import { MainAdminPanel } from "@/components/main-admin-panel";
 import { useSession, signIn, signOut } from "next-auth/react";
 
 export default async function ProtectedPage() {
@@ -9,9 +10,7 @@ export default async function ProtectedPage() {
 
   return (
     <>
-      {JSON.stringify(session)}
-      {/* <h1>You are not signed in</h1> */}
-      {/* <button>Sign in</button> */}
+      <MainAdminPanel session={session} />
     </>
   );
 }

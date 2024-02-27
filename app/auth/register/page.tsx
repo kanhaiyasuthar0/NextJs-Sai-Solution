@@ -10,11 +10,15 @@ import { registerAction } from "@/app/actions/register.action";
 function Register() {
   const handleRegister = async (formData: any) => {
     console.log(formData, "in client func");
-    startTransition(async () => {
-      const response = await registerAction(formData);
-      console.log("🚀 ~ handleLogin ~ response:", response);
+    startTransition(() => {
+      transion(formData);
     });
   };
+
+  async function transion(formData: any) {
+    const response = await registerAction(formData);
+    console.log("🚀 ~ handleLogin ~ response:", response);
+  }
   //   const handleSubmit = async (formData) => {
   //     "use server";
   //     let email = formData.get("email");

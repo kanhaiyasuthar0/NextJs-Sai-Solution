@@ -2,7 +2,7 @@ import { revalidatePath } from "next/cache";
 import { cookies } from "next/headers";
 
 const NewSite = () => {
-  async function handleSubmit(formData) {
+  async function handleSubmit(formData: any) {
     "use server";
     console.log(formData.get("images"));
     const site_name = formData.get("site_name");
@@ -16,7 +16,9 @@ const NewSite = () => {
 
     // console.log(formData.get("images"));
     // return {};
-    const promises = await images.map((image) => uploadImageToCloud(image));
+    const promises = await images.map((image: any) =>
+      uploadImageToCloud(image)
+    );
     const uploadedImageLinks = await Promise.all(promises);
 
     console.log("🚀 ~ handleSubmit ~ images:", images);
@@ -51,7 +53,7 @@ const NewSite = () => {
       console.error(errorData);
     }
 
-    async function uploadImageToCloud(image) {
+    async function uploadImageToCloud(image: any) {
       "use server";
       try {
         const formData = new FormData();
@@ -208,7 +210,7 @@ const NewSite = () => {
             // onChange={handleChange}
             required
             className="mt-1 p-2 w-full rounded-md bg-gray-700 text-white focus:ring-indigo-500 focus:border-indigo-500"
-            rows="4"
+            rows={4}
           ></textarea>
         </div>
 

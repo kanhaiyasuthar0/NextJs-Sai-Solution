@@ -1,12 +1,12 @@
 import dbConnect from "@/db/dbConnect"; // Adjust this path to where your dbConnect function is located
 import SiteModel from "@/models/Sites.models"; // Adjust this path to where your Site model is located
-import { validateToken } from "@/utils/verifyToken";
+// import { validateToken } from "@/utils/verifyToken";
 import { JsonWebTokenError } from "jsonwebtoken";
 import { NextApiRequest, NextApiResponse } from "next";
 import { cookies, headers } from "next/headers";
 import { NextResponse } from "next/server";
 // async function handler(req, res) {
-async function getHandler(req: NextApiRequest) {
+async function getHandler(req: Request) {
   await dbConnect();
 
   try {
@@ -14,7 +14,7 @@ async function getHandler(req: NextApiRequest) {
 
     return NextResponse.json(sites);
   } catch (error) {
-    return NextResponse.error(error.message);
+    return NextResponse.error();
   }
 }
 async function postHandler(req: Request) {
@@ -22,7 +22,7 @@ async function postHandler(req: Request) {
     const headersList = headers();
     console.log("🚀 ~ postHandler ~ req:", headersList.get("Authorization"));
     let token = cookies().get("token")?.value;
-    console.log("🚀 ~ validateToken ~ token:", token);
+    // console.log("🚀 ~ validateToken ~ token:", token);
     // const decoded = JsonWebTokenError.verify(token, "MYKEY");
     // console.log("🚀 ~ postHandler ~ decoded:", decoded);
 
@@ -31,7 +31,7 @@ async function postHandler(req: Request) {
     const newSite = await SiteModel.create(body);
     return NextResponse.json(newSite);
   } catch (error) {
-    return NextResponse.error({ message: "message" }, { status: 500 });
+    return NextResponse.error();
   }
 }
 export { getHandler as GET, postHandler as POST };
