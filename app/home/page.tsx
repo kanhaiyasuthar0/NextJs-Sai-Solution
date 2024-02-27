@@ -6,7 +6,7 @@ async function Home() {
   const session = await auth();
   console.log("🚀 ~ SettingPage ~ session:", session);
 
-  const res = await fetch("http://localhost:3000/api/site");
+  const res = await fetch("/api/site");
   const data = await res.json();
 
   // console.log("🚀 ~ getStaticSideProps ~ res:", data);

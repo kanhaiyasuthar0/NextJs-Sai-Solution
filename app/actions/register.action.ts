@@ -5,7 +5,7 @@ export async function registerAction(formData: any) {
   let email = formData.get("email");
   let password = formData.get("password");
   console.log("🚀 ~ handleSubmit ~ formData:", formData, email, password);
-  const res = await fetch("http://localhost:3000/api/user/register", {
+  const res = await fetch("/api/user/register", {
     method: "POST",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify({ email, password }),

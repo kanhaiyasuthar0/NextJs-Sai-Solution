@@ -16,7 +16,7 @@ async function SiteDetailPage(context: any) {
   // return <>Hello</>;
   // Render site details
   // const { siteId } = context.params;
-  const res = await fetch(`http://localhost:3000/api/site/${siteId}`);
+  const res = await fetch(`/api/site/${siteId}`);
   const site = await res.json();
   console.log("🚀 ~ SiteDetailPage ~ res:", site);
 
@@ -25,7 +25,7 @@ async function SiteDetailPage(context: any) {
     console.log("🚀 ~ handleDeleteAction ~ formData:", formData);
     console.log("🚀 ~ handleDeleteAction ~ siteId:", siteId);
 
-    const res = await fetch(`http://localhost:3000/api/site/${siteId}`, {
+    const res = await fetch(`/api/site/${siteId}`, {
       method: "DELETE",
       headers: {
         "Content-Type": "application/json",

@@ -25,7 +25,7 @@ const NewSite = () => {
     const site_description = formData.get("site_description");
     const token = cookies().get("token")?.value;
     console.log("🚀 ~ handleSubmit ~ token:", token);
-    const res = await fetch("http://localhost:3000/api/site", {
+    const res = await fetch("/api/site", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
