@@ -1,3 +1,4 @@
+import { ThreeDCardDemo } from "@/components/generics/Card3d";
 import Image from "next/image";
 import Link from "next/link";
 
@@ -7,11 +8,11 @@ function HomePage(props) {
       <div className="bg-gray-900 min-h-screen">
         <div className="container mx-auto px-4 py-8">
           <h1 className="text-white text-3xl font-bold mb-6">Site Gallery</h1>
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-2 gap-5">
             {props.data.map((site) => (
               <>
                 <Link key={site._id} href={`/home/${site._id}`}>
-                  <div className="bg-gray-800 rounded-lg overflow-hidden">
+                  {/* <div className="bg-gray-800 rounded-lg overflow-hidden">
                     <img
                       src={site.images[0]}
                       alt={site.site_name}
@@ -23,7 +24,8 @@ function HomePage(props) {
                       </h2>
                       <p className="text-gray-400">{site.site_description}</p>
                     </div>
-                  </div>
+                  </div> */}
+                  <ThreeDCardDemo site={site} />
                 </Link>
                 {/* {props.session && (
                   <form action={handleDelete}>

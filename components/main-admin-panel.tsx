@@ -239,9 +239,11 @@ export function MainAdminPanel({ session }: any) {
                 <PackageIcon className="h-6 w-6" />
                 <CardTitle>Projects</CardTitle>
               </div>
-              <Button className="ml-auto w-full md:w-auto" size="sm">
-                Add project
-              </Button>
+              <Link href={"/admin/new-site"}>
+                <Button className="ml-auto w-full md:w-auto" size="sm">
+                  Add project
+                </Button>
+              </Link>
             </CardHeader>
             <CardContent className="p-0">
               <Table>

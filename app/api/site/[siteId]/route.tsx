@@ -23,7 +23,7 @@ async function handler(req: Request, context: any) {
   }
 }
 async function DELETE(req: Request, context: any) {
-  console.log("🚀 ~ handler ~ req:", context);
+  console.log("🚀 ~ handler ~ req: dele", context);
   const {
     params: { siteId },
   } = context;

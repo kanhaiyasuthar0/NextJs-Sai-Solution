@@ -1,7 +1,7 @@
 import Link from "next/link";
 
 const page = async () => {
-  const res = await fetch("/api/site");
+  const res = await fetch(`${process.env.BASE_URL}/api/site`);
   const sites = await res.json();
 
   return (

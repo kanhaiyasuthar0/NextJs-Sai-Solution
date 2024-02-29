@@ -25,7 +25,7 @@ const NewSite = () => {
     const site_description = formData.get("site_description");
     const token = cookies().get("token")?.value;
     console.log("🚀 ~ handleSubmit ~ token:", token);
-    const res = await fetch("/api/site", {
+    const res = await fetch(`${process.env.BASE_URL}/api/site`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -46,6 +46,8 @@ const NewSite = () => {
       const data = await res.json(); // Assuming the response is JSON
       console.log(data, "data1");
       revalidatePath("/home");
+      revalidatePath(`/admin/analytics`);
+
       // router.push("/home");
       //   redirect("/home");
     } else {

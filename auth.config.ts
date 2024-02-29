@@ -7,7 +7,7 @@ import dbConnect from "./db/dbConnect";
 // import { adapter, getUser } from "./auth";
 export default {
   pages: {
-    signIn: "http://localhost:3000/auth/login",
+    signIn: `${process.env.BASE_URL}/auth/login`,
   },
   callbacks: {
     authorized({ auth, request: { nextUrl } }) {

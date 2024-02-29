@@ -10,7 +10,7 @@ export default function DeleteButton(props: any) {
       className="flex items-center justify-center px-4 py-2 bg-red-500 hover:bg-red-700 text-white font-bold rounded-lg shadow-lg cursor-pointer transition ease-in duration-200"
       type="submit"
       aria-disabled={pending}
-      disabled
+      disabled // check this value
     >
       <svg
         xmlns="http://www.w3.org/2000/svg"
