@@ -49,6 +49,11 @@ const Navbar = () => {
                   Videos
                 </div>
               </Link>
+              <Link href="/events" passHref>
+                <div className="py-5 px-3 hover:text-gray-400 cursor-pointer">
+                  Events
+                </div>
+              </Link>
               {/* <Link href={`/auth/login`} passHref>
                 <div className="py-5 px-3 hover:text-gray-400 cursor-pointer">
                   Login

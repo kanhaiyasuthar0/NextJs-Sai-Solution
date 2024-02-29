@@ -9,6 +9,8 @@ export const publicRoutes: string[] = [
   "/videos",
   "/about",
   "/home/",
+  "/events",
+  "/events/",
 ];
 
 /**
