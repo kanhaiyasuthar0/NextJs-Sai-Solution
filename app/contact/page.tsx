@@ -1,11 +1,19 @@
 import React from "react";
+import contactUsPost from "../actions/contactUs.action";
+import SubmitButton from "@/components/generics/Button";
 
 const Contact = () => {
+  async function postContactUsData(formData: FormData) {
+    "use server";
+    const response = await contactUsPost(formData);
+    console.log("🚀 ~ postContactUsData ~ response:", response);
+  }
+
   return (
     <div className="bg-gray-900 min-h-screen flex flex-col justify-center items-center text-white p-4">
       <div className="w-full max-w-2xl bg-gray-800 shadow-lg rounded-lg p-8">
         <h2 className="text-3xl font-bold mb-4">Contact Us</h2>
-        <form className="space-y-6">
+        <form className="space-y-6" action={postContactUsData}>
           <div>
             <label
               htmlFor="name"
@@ -52,12 +60,13 @@ const Contact = () => {
             ></textarea>
           </div>
           <div className="flex justify-end">
-            <button
+            {/* <button
               type="submit"
               className="px-6 py-2 border border-transparent text-base font-medium rounded-md text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 shadow-sm"
             >
               Send Message
-            </button>
+            </button> */}
+            <SubmitButton text={"Send Message"} />
           </div>
         </form>
       </div>

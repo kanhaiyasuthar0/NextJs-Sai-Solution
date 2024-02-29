@@ -121,6 +121,7 @@ const Navbar = () => {
           <div className="md:hidden flex items-center">
             <button onClick={() => setIsOpen(!isOpen)}>
               {/* Icon for mobile menu */}
+              Menu
             </button>
           </div>
         </div>
@@ -132,9 +133,14 @@ const Navbar = () => {
             Home
           </div>
         </Link>
-        <Link href="/login" passHref>
+        <Link href="/auth/login" passHref>
           <div className="block py-2 px-4 text-sm hover:bg-gray-700 cursor-pointer">
             Login
+          </div>
+        </Link>
+        <Link href="/events" passHref>
+          <div className="block py-2 px-4 text-sm hover:bg-gray-700 cursor-pointer">
+            Events
           </div>
         </Link>
         <Link href="/videos" passHref>
