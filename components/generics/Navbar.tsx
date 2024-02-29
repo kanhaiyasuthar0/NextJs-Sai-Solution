@@ -65,13 +65,13 @@ const Navbar = () => {
                 ""
               )}
 
-              {!session && (
+              {/* {!session && (
                 <Link href="/auth/register" passHref>
                   <div className="py-5 px-3 hover:text-gray-400 cursor-pointer">
                     Register
                   </div>
                 </Link>
-              )}
+              )} */}
               {/* {session && (
                 <Link href="/admin/new-site" passHref>
                   <div className="py-5 px-3 hover:text-gray-400 cursor-pointer">
